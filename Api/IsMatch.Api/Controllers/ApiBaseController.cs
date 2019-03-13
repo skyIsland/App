@@ -15,7 +15,11 @@ namespace IsMatch.Api.Controllers
     //    POST /api/todo         添加新项           待办事项         待办事项
     //    PUT /api/todo/{id}	 更新现有项         待办事项         None
     //    DELETE /api/todo/{id}  删除项             None             None
-
+    /// <summary>
+    /// 基类
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class ApiBaseController<TEntity> : ControllerBase where TEntity : Entity<TEntity>, new()
@@ -73,7 +77,7 @@ namespace IsMatch.Api.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpDelete]
         public virtual ActionResult<AjaxResult<TEntity>> PutTEntity(long id)
         {
             var data = Entity<TEntity>.FindByKey(id);

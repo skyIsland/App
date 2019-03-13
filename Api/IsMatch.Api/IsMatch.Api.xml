@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IsMatch.Api</name>
+    </assembly>
+    <members>
+        <member name="T:IsMatch.Api.Controllers.ApiBaseController`1">
+            <summary>
+            基类
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:IsMatch.Api.Controllers.ApiBaseController`1.GetList(NewLife.Data.PageParameter)">
+            <summary>
+            获取所有项
+            </summary>
+            <param name="pager"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IsMatch.Api.Controllers.ApiBaseController`1.GetById(System.Int64)">
+            <summary>
+            按 ID 获取项 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IsMatch.Api.Controllers.ApiBaseController`1.PostTEntity(`0)">
+            <summary>
+            添加/更新 新项
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IsMatch.Api.Controllers.ApiBaseController`1.PutTEntity(System.Int64)">
+            <summary>
+            删除项
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
