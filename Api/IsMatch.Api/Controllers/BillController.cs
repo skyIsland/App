@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IsMatch.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class BillController : ApiBaseController<IsMatch.Domain.Bill>
     {
     }

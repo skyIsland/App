@@ -10,11 +10,12 @@
             </summary>
             <typeparam name="TEntity"></typeparam>
         </member>
-        <member name="M:IsMatch.Api.Controllers.ApiBaseController`1.GetList(NewLife.Data.PageParameter)">
+        <member name="M:IsMatch.Api.Controllers.ApiBaseController`1.GetList(System.Int32,System.Int32)">
             <summary>
             获取所有项
             </summary>
-            <param name="pager"></param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">大小</param>
             <returns></returns>
         </member>
         <member name="M:IsMatch.Api.Controllers.ApiBaseController`1.GetById(System.Int64)">

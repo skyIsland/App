@@ -19,19 +19,23 @@ namespace IsMatch.Api.Controllers
     /// 基类
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    [Produces("application/json")]
+    //[Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class ApiBaseController<TEntity> : ControllerBase where TEntity : Entity<TEntity>, new()
     {
+
         /// <summary>
         /// 获取所有项
         /// </summary>
-        /// <param name="pager"></param>
+        /// <param name="pageIndex">页码</param>
+        /// <param name="pageSize">大小</param>
         /// <returns></returns>
         [HttpGet]
-        public virtual ActionResult<PageResult<IList<TEntity>>> GetList(NewLife.Data.PageParameter pager)
+        [Route("GetList")]
+        public virtual ActionResult<PageResult<IList<TEntity>>> GetList(int pageIndex = 1, int pageSize = 20)
         {
+            var pager = new NewLife.Data.PageParameter { PageIndex = 1, PageSize = pageSize };
             var list = Entity<TEntity>.Search(null, pager);
             var result = PageResult<IList<TEntity>>.FromPager(pager);
             result.Data = list;
@@ -61,6 +65,7 @@ namespace IsMatch.Api.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost]
+        [Route("PostTEntity")]
         public virtual ActionResult<AjaxResult<TEntity>> PostTEntity(TEntity entity)
         {
             var ret = entity.Save();
@@ -78,6 +83,7 @@ namespace IsMatch.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
+        [Route("PutTEntity")]
         public virtual ActionResult<AjaxResult<TEntity>> PutTEntity(long id)
         {
             var data = Entity<TEntity>.FindByKey(id);
