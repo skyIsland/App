@@ -8,6 +8,12 @@
 			"style": {}
 		},
 		{
+			"path": "pages/bill/bill",
+			"style": {
+				"navigationBarTitleText": "我的账单"
+			}
+		},
+		{
 			"path": "pages/ucenter/ucenter",
 			"style": {
 				"navigationBarTitleText": "个人中心"
@@ -25,6 +31,11 @@
 			"selectedIconPath": "static/home-active.png",
 			"text": "资讯"
 		}, {
+			"pagePath": "pages/bill/bill",
+			"iconPath": "static/home.png",
+			"selectedIconPath": "static/home-active.png",
+			"text": "账单"
+		},{
 			"pagePath": "pages/ucenter/ucenter",
 			"iconPath": "static/center.png",
 			"selectedIconPath": "static/center-active.png",

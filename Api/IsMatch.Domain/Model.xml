@@ -3,6 +3,7 @@
   <Table Name="Bill" Description="账单" DbType="SqlServer" RenderGenEntity="true">
     <Columns>
       <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="编号" />
+      <Column Name="ParentId" DataType="Int32" Description="父级变动id" />
       <Column Name="Type" DataType="Int32" Description="变动类型 1收入 2支出" />
       <Column Name="Money" DataType="Decimal" Master="True" Description="金额" />
       <Column Name="Summary" DataType="String" Length="500" Nullable="False" Description="摘要" />

@@ -73,32 +73,31 @@ namespace IsMatch.Domain
             //if (!Dirtys[nameof(UpdateIP)]) nameof(UpdateIP) = WebHelper.UserHost;
         }
 
-        ///// <summary>首次连接数据库时初始化数据，仅用于实体类重载，用户不应该调用该方法</summary>
-        //[EditorBrowsable(EditorBrowsableState.Never)]
-        //protected override void InitData()
-        //{
-        //    // InitData一般用于当数据表没有数据时添加一些默认数据，该实体类的任何第一次数据库操作都会触发该方法，默认异步调用
-        //    if (Meta.Session.Count > 0) return;
+        /// <summary>首次连接数据库时初始化数据，仅用于实体类重载，用户不应该调用该方法</summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        protected override void InitData()
+        {
+            // InitData一般用于当数据表没有数据时添加一些默认数据，该实体类的任何第一次数据库操作都会触发该方法，默认异步调用
+            if (Meta.Session.Count > 0) return;
 
-        //    if (XTrace.Debug) XTrace.WriteLine("开始初始化TEntity[账单]数据……");
+            if (XTrace.Debug) XTrace.WriteLine("开始初始化TEntity[账单]数据……");
 
-        //    var entity = new TEntity();
-        //    entity.ID = 0;
-        //    entity.Type = 0;
-        //    entity.Money = 0.0;
-        //    entity.Summary = "abc";
-        //    entity.CreateUser = "abc";
-        //    entity.CreateUserID = 0;
-        //    entity.CreateTime = DateTime.Now;
-        //    entity.CreateIP = "abc";
-        //    entity.UpdateUser = "abc";
-        //    entity.UpdateUserID = 0;
-        //    entity.UpdateTime = DateTime.Now;
-        //    entity.UpdateIP = "abc";
-        //    entity.Insert();
+            var entity = new TEntity();
+            entity.Type = 2;
+            entity.Money = 6;
+            entity.Summary = "烤奶";
+            entity.CreateUser = "1";
+            entity.CreateUserID = 1;
+            entity.CreateTime = DateTime.Now;
+            entity.CreateIP = "abc";
+            entity.UpdateUser = "abc";
+            entity.UpdateUserID = 0;
+            entity.UpdateTime = DateTime.Now;
+            entity.UpdateIP = "abc";
+            entity.Insert();
 
-        //    if (XTrace.Debug) XTrace.WriteLine("完成初始化TEntity[账单]数据！");
-        //}
+            if (XTrace.Debug) XTrace.WriteLine("完成初始化TEntity[账单]数据！");
+        }
 
         ///// <summary>已重载。基类先调用Valid(true)验证数据，然后在事务保护内调用OnInsert</summary>
         ///// <returns></returns>
