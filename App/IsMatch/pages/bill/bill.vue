@@ -4,8 +4,8 @@
 			<view>
 				<scroll-view class="list" scroll-y>
 					<ul id="example-1">
-						<li v-for="item in items" :key="item.id">
-							{{ item.money }}
+						<li v-for="item in billList" :key="item.id">
+							{{ item.money }} {{ item.type }}
 						</li>
 					</ul>
 				</scroll-view>
@@ -44,22 +44,21 @@
 					title: '加载中'
 				});
 				uni.request({
-					url: 'http://localhost:52013/api/bill/getlist',
+					url: 'http://192.168.8.58:5000/api/bill/getlist',
 					success: (result) => {
-						if (result.statusCode == 1) {
-							this.billList.concat(result.data);
+						if (result.statusCode == 200) {
+							console.log(JSON.stringify(result));
+							if (result.data.status == 1) {
+								this.billList = this.billList.concat(result.data.data);
+							}
 						} else {
-							let msg = result.Message;
-							uni.showToast({
-								title: msg,
-								duration: 2000
-							});
+							console.log(JSON.stringify(`${statusCode}{result}`));
 						}
 					},
 					fail: (ret) => {
 						uni.showModal({
 							title: '提示',
-							content: ret.errMsg
+							content: JSON.stringify(ret)
 						});
 					},
 					complete: () => {

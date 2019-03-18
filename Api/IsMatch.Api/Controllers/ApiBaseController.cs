@@ -35,10 +35,11 @@ namespace IsMatch.Api.Controllers
         [Route("GetList")]
         public virtual ActionResult<PageResult<IList<TEntity>>> GetList(int pageIndex = 1, int pageSize = 20)
         {
-            var pager = new NewLife.Data.PageParameter { PageIndex = 1, PageSize = pageSize };
+            var pager = new NewLife.Data.PageParameter { PageIndex = 1, PageSize = pageSize, RetrieveTotalCount  = true};
             var list = Entity<TEntity>.Search(null, pager);
             var result = PageResult<IList<TEntity>>.FromPager(pager);
             result.Data = list;
+			result.Status = 1;
             return result;
         }
 
