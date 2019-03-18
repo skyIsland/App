@@ -115,6 +115,22 @@ namespace IsMatch.Domain
         #endregion
 
         #region 扩展属性
+        private string _TypeStr;
+
+        public string TypeStr
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_TypeStr))
+                {
+                    if (Type == 1) _TypeStr = "收入";
+                    else _TypeStr = "支出";
+                }
+                return _TypeStr;
+            }
+        }
+
+
         #endregion
 
         #region 扩展查询
