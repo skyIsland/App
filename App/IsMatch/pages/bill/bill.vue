@@ -4,12 +4,13 @@
 			<view>
 				<scroll-view class="list" scroll-y>
 					<uni-list>
-						<uni-list-item  v-bind:title="item.summary"  v-for="item in billList" :key="item.id" 
-								show-badge="true"  v-bind:note="item.typeStr" 
-								v-bind:badge-text="item.money"
-								@click="showDetail(item)"></uni-list-item>
+						<uni-list-item v-bind:title="item.summary" v-for="item in billList" :key="item.id" show-badge="true" v-bind:note="item.typeStr"
+						 v-bind:badge-text="item.money" @click="showDetail(item)"></uni-list-item>
 					</uni-list>
 				</scroll-view>
+				<navigator url="./add" hover-class="navigator-hover">
+					<button type="primary" class="btnAdd">添加</button>
+				</navigator>
 			</view>
 		</view>
 	</view>
@@ -17,7 +18,6 @@
 <script>
 	import uniList from '@/components/uni-list/uni-list.vue'
 	import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
-
 	export default {
 		components: {
 			uniList,
@@ -36,7 +36,7 @@
 					typeStr: '支出',
 					money: '6',
 					summary: '烤奶',
-					updateTime:'2019-03-18 22:00'
+					updateTime: '2019-03-18 22:00'
 				}]
 			}
 		},
@@ -49,7 +49,7 @@
 					title: '加载中'
 				});
 				uni.request({
-					url: 'http://192.168.1.5:5000/api/bill/getlist',
+					url: 'http://192.168.8.58:5000/api/bill/getlist',
 					success: (result) => {
 						if (result.statusCode == 200) {
 							console.log(JSON.stringify(result));
@@ -71,7 +71,7 @@
 					}
 				})
 			},
-			showDetail(detail){
+			showDetail(detail) {
 				let msg = `${detail.updateTime} ${detail.typeStr} ${detail.summary} ${detail.money}`;
 				uni.showModal({
 					title: '详细',
@@ -83,5 +83,8 @@
 </script>
 
 <style>
-
+	.btnAdd {
+		width: 98%;
+		margin-top:10px;
+	}
 </style>

@@ -18,8 +18,14 @@
 			"style": {
 				"navigationBarTitleText": "个人中心"
 			}
-		}
-	],
+		}	   
+        ,{
+            "path" : "pages/bill/add",
+            "style" : {
+				"navigationBarTitleText": "添加账单"
+			}
+        }
+    ],
 	"tabBar": {
 		"color": "#000000",
 		"selectedColor": "#2F85FC",
